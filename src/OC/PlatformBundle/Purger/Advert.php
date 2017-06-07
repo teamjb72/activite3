@@ -25,7 +25,7 @@ class Advert
     public function purge($days)
     {
 
-        $repository = $this
+        $repository = $this->em
             ->getDoctrine()
             ->getManager()
             ->getRepository('OCPlatformBundle:Advert')
