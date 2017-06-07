@@ -22,7 +22,5 @@ services:
 
   oc_platform.purger.advert:
     class: OC\PlatformBundle\Purger\Advert
-    factory: ['@doctrine.orm.default_entity_manager', getRepository]
-    arguments:
-     -  OC\PlatformBundle\Entity\Advert
+    arguments: [ @doctrine.orm.entity_manager ]
 

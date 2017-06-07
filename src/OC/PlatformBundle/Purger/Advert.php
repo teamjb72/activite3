@@ -4,8 +4,7 @@
 namespace OC\PlatformBundle\Purger;
 
 use OC\PlatformBundle\Entity\AdvertRepository;
-use Doctrine\ORM\EntityRepository;
-
+use Doctrine\ORM\EntityManagerInterface;
 
 class Advert
 {
@@ -15,17 +14,17 @@ class Advert
      * @param string $days
      * @return bool
      */
-    private $advert;
+    private $em;
 
-    public function __construct(EntityRepository $advert)
+    public function __construct(EntityManagerInterface $em)
     {
-        $this->advert = $advert;
+        $this->ademvert = $em;
     }
 
     public function purge($days)
     {
-
-        $repository = $this->advert
+        $em = $this->get('doctrine')->getEntityManager();
+        $repository = $em
             ->getDoctrine()
             ->getManager()
             ->getRepository('OCPlatformBundle:Advert')
