@@ -150,7 +150,7 @@ class AdvertController extends Controller
       'listAdverts' => $listAdverts
     ));
   }
-    public function purgeAction($days)
+    public function purgeAction($days, Request $request)
     {
         $resultat_purge = $this->container->get('oc_platform.purger.advert');
 
