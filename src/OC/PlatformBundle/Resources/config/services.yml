@@ -23,4 +23,4 @@ services:
   oc_platform.purger.advert:
     class: OC\PlatformBundle\Purger\Advert
     arguments:
-        - "@doctrine.orm.entity_manager"
+        - "@doctrine.orm.entity_repository"
