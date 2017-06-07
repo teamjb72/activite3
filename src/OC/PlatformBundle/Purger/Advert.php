@@ -13,11 +13,15 @@ class Advert
      * @param string $days
      * @return bool
      */
+
+    /**
+     * @var EntityManagerInterface
+     */
     private $em;
 
     public function __construct(EntityManagerInterface $em)
     {
-        $this->ademvert = $em;
+        $this->em = $em;
     }
 
     public function purge($days)
