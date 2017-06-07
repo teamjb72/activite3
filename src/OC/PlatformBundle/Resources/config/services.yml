@@ -20,5 +20,5 @@ services:
     tags:
       - { name: doctrine.event_listener, event: postPersist }
 
- oc_platform.purger.advert:
-   class: OC\PlatformBundle\Purger\Advert
+  oc_platform.purger.advert:
+    class: OC\PlatformBundle\Purger\Advert
