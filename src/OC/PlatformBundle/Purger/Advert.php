@@ -15,17 +15,17 @@ class Advert
      * @param string $days
      * @return bool
      */
-    private $customRepository;
+    private $advert;
 
-    public function __construct(EntityRepository $customRepository)
+    public function __construct(EntityRepository $advert)
     {
-        $this->customRepository = $customRepository;
+        $this->advert = $advert;
     }
 
     public function purge($days)
     {
 
-        $repository = $this->customRepository
+        $repository = $this->advert
             ->getDoctrine()
             ->getManager()
             ->getRepository('OCPlatformBundle:Advert')
