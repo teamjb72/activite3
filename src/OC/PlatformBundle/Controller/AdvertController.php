@@ -156,6 +156,8 @@ class AdvertController extends Controller
 
 
 
+
+
         if ($resultat_purge->purge($days)) {
             throw new \Exception('Le jour passé en paramètre mesure moins de 3 caractères !');
         }

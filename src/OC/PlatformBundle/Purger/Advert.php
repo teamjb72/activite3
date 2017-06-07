@@ -22,6 +22,15 @@ class Advert
 
     public function purge($days)
     {
+
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('OCPlatformBundle:Advert')
+        ;
+
+        $listAdverts = $repository->getOldAdverts();
+
         return strlen($days) < "3";
 
     }
