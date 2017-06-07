@@ -29,7 +29,6 @@ class Advert
 
 
         $repository = $this->em
-            ->getManager()
             ->getRepository('OCPlatformBundle:Advert')
         ;
 
