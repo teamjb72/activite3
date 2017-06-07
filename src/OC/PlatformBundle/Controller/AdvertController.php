@@ -7,6 +7,7 @@ namespace OC\PlatformBundle\Controller;
 use OC\PlatformBundle\Entity\Advert;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AdvertController extends Controller
@@ -149,4 +150,17 @@ class AdvertController extends Controller
       'listAdverts' => $listAdverts
     ));
   }
+    public function purgeAction($days)
+    {
+        $resultat_purge = $this->container->get('oc_platform.purger.advert');
+
+
+
+        if ($resultat_purge->purge($days)) {
+            throw new \Exception('Le jour passé en paramètre mesure moins de 3 caractères !');
+        }
+
+
+        return new Response();
+    }
 }
