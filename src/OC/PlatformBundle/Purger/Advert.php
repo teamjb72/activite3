@@ -3,7 +3,6 @@
 
 namespace OC\PlatformBundle\Purger;
 
-use OC\PlatformBundle\Entity\AdvertRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 class Advert
