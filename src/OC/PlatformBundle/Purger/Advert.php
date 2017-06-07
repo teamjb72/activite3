@@ -4,6 +4,8 @@
 namespace OC\PlatformBundle\Purger;
 
 use OC\PlatformBundle\Entity\AdvertRepository;
+use Doctrine\ORM\EntityManager;
+
 
 class Advert
 {
@@ -13,11 +15,11 @@ class Advert
      * @param string $days
      * @return bool
      */
+    protected $em;
 
-
-    public function __construct()
+    public function __construct(EntityManager $entityManager)
     {
-
+        $this->em = $entityManager;
     }
 
     public function purge($days)
