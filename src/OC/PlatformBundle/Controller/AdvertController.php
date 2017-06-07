@@ -141,7 +141,7 @@ class AdvertController extends Controller
 
     $listAdverts = $em->getRepository('OCPlatformBundle:Advert')->findBy(
       array(),                 // Pas de critère
-      array('date' => 'desc'), // On trie par date décroissante
+      array(), // On trie par date décroissante
       $limit,                  // On sélectionne $limit annonces
       0                        // À partir du premier
     );
