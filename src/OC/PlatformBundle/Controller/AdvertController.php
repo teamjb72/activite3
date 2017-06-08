@@ -152,7 +152,7 @@ class AdvertController extends Controller
   }
     public function purgeAction($days)
     {
-        /*$resultat_purge = $this->container->get('oc_platform.purger.advert');
+        $resultat_purge = $this->container->get('oc_platform.purger.advert');/*
 
         foreach ($resultat_purge as $advert) {
             // Ne déclenche pas de requête : les candidatures sont déjà chargées !
