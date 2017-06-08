@@ -37,8 +37,8 @@ class AdvertRepository extends EntityRepository
 
      return $this->createQueryBuilder('a')
          ->where('a.updatedAt <= :date')
-         ->andWhere('a.applications IS EMPTY')
          ->orWhere('a.updatedAt IS NULL AND a.date <= :date')
+         ->andWhere('a.applications IS EMPTY')
          ->setParameter('date', $date)
          ->getQuery()
          ->getResult()
