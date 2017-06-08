@@ -27,17 +27,17 @@ class Advert
     public function purge($days)
     {
 
-
+        $date = (new \DateTime());
+        date_modify($date, '-'.$days.' day');
 
         $advertRepository      = $this->em->getRepository('OCPlatformBundle:Advert');
         $advertSkillRepository = $this->em->getRepository('OCPlatformBundle:AdvertSkill');
-        // date d'il y a $days jours
-        $date = new \Datetime($days.' days ago');
+
         // On récupère les annonces à supprimer
-        $listAdverts = $advertRepository->getOldAdverts($date);
+        $listAdverts = $advertRepository->getOldAdverts($days);
         // On parcourt les annonces pour les supprimer effectivement
         foreach ($listAdverts as $advert) {
-            // On récupère les AdvertSkill liées à cette annonce
+
             $advertSkills = $advertSkillRepository->findBy(array('advert' => $advert));
             // Pour les supprimer toutes avant de pouvoir supprimer l'annonce elle-même
             /*foreach ($advertSkills as $advertSkill) {
