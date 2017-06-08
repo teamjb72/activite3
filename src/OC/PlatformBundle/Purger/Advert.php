@@ -26,9 +26,6 @@ class Advert
 
     public function purge($days)
     {
-
-
-
         $advertRepository      = $this->em->getRepository('OCPlatformBundle:Advert');
         $advertSkillRepository = $this->em->getRepository('OCPlatformBundle:AdvertSkill');
 
@@ -50,8 +47,6 @@ class Advert
             $this->em->remove($advert);
           /* echo $advert->getTitle()."<br>;";*/
         }
-
        $this->em->flush();
-
     }
 }
