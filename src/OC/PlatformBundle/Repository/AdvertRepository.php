@@ -35,12 +35,19 @@ class AdvertRepository extends EntityRepository
   public function getOldAdverts($days)
   {
      /* $date = (new \DateTime())->modify('-'.$days.' day');*/
-      $date = (new \DateTime());
+      /*$date = (new \DateTime());
       $query = $this->createQueryBuilder('a')
-        ->where('a.updatedAt = :date')
+        ->where('a.updatedAt >= :date')
           ->setParameter('date', $date)
-          ->getQuery();
-
+          ->getQuery();*/
+      $query = $this->createQueryBuilder('a')
+          ->leftJoin('a.image', 'i')
+          ->addSelect('i')
+          ->leftJoin('a.categories', 'c')
+          ->addSelect('c')
+          /*->orderBy('a.date', 'DESC')*/
+          ->getQuery()
+      ;
       return $query;
 
   }
