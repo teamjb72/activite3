@@ -7,7 +7,7 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use OC\PlatformBundle\Entity\Skill;
 
-class LoadSkill implements FixtureInterface
+class LoadAdvert implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
