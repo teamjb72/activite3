@@ -32,7 +32,7 @@ class Advert
         $advertRepository      = $this->em->getRepository('OCPlatformBundle:Advert');
         $advertSkillRepository = $this->em->getRepository('OCPlatformBundle:AdvertSkill');
         // date d'il y a $days jours
-        $date = new \Datetime($days);
+        $date = new \Datetime($days.' days ago');
         // On récupère les annonces à supprimer
         $listAdverts = $advertRepository->getOldAdverts($date);
         // On parcourt les annonces pour les supprimer effectivement
