@@ -42,7 +42,9 @@ class AdvertRepository extends EntityRepository
           ->orderBy('a.date', 'DESC')
           ->getQuery()
       ;
-    return $query;
+      echo $query->getSQL();
+
+      return $query;
 
   }
 
