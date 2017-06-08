@@ -45,6 +45,10 @@ class LoadAdvert implements FixtureInterface
 
             $advert->setSlug('annonce'.$i);
 
+            $skill = new Skill ();
+            $skill->setName("ruby");
+            $advert->setSkill($skill);
+
             // On la persiste
             $manager->persist($advert);
         }
