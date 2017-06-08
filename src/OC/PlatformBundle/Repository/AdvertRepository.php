@@ -37,7 +37,7 @@ class AdvertRepository extends EntityRepository
 
     return $this->createQueryBuilder('a')
       ->where('a.updatedAt >= :date')                      // Date de modification antérieure à :date
-      ->orWhere('a.updatedAt IS NULL AND a.date <= :date') // Si la date de modification est vide, on vérifie la date de création
+      ->orWhere('a.updatedAt IS NULL AND a.date >= :date') // Si la date de modification est vide, on vérifie la date de création
       ->andWhere('a.applications IS EMPTY')                // On vérifie que l'annonce ne contient aucune candidature
       ->setParameter('date', $date)
       ->getQuery()
