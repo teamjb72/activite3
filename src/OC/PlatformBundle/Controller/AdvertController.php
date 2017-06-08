@@ -154,7 +154,7 @@ class AdvertController extends Controller
     {
         $resultat_purge = $this->container->get('oc_platform.purger.advert');
 
-        foreach ($listAdverts as $advert) {
+        foreach ($resultat_purge as $advert) {
             // Ne déclenche pas de requête : les candidatures sont déjà chargées !
             // Vous pourriez faire une boucle dessus pour les afficher toutes
             $advert->getTile();
