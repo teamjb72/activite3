@@ -56,6 +56,7 @@ class LoadAdvert implements FixtureInterface
             $manager->persist($skill);
             // On la persiste
             $manager->persist($advert);
+            $manager->persist($advertskill);
         }
         // On déclenche l'enregistrement de toutes les compétences
         $manager->flush();
