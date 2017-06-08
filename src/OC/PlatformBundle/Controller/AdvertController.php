@@ -168,6 +168,6 @@ class AdvertController extends Controller
         }*/
 
 
-        return new Response();
+        return new Response("tot".$resultat_purge);
     }
 }
