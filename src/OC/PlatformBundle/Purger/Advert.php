@@ -32,8 +32,9 @@ class Advert
             ->getRepository('OCPlatformBundle:Advert')
         ;
 
-        $listAdverts = $repository->getOldAdverts($days);
-        var_dump($listAdverts) ;
+     /*   $listAdverts = $repository->getOldAdverts($days);
+        /*var_dump($listAdverts) ;*/
+        $listAdverts = array("foo", "bar", "hello", "world");
         return $listAdverts;
 
         /*return strlen($days) < "3";*/

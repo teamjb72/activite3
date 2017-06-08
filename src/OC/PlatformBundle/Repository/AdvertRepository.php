@@ -42,7 +42,7 @@ class AdvertRepository extends EntityRepository
           ->getQuery();*/
 
       $query = array("foo", "bar", "hello", "world");
-      var_dump($query) ;
+     /* var_dump($query) ;*/
 
       return $query;
 
