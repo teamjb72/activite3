@@ -8,6 +8,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 use OC\PlatformBundle\Entity\Advert;
 use OC\PlatformBundle\Entity\Image;
 use OC\PlatformBundle\Entity\Category;
+use OC\PlatformBundle\Entity\Skill;
+use OC\PlatformBundle\Entity\AdvertSkill;
 
 class LoadAdvert implements FixtureInterface
 {
@@ -47,7 +49,10 @@ class LoadAdvert implements FixtureInterface
 
             $skill = new Skill ();
             $skill->setName("ruby");
-            $advert->setSkill($skill);
+
+            $advertskill = New AdvertSkill();
+            $advertskill->setSkill($skill);
+            $advertskill->setAdvert($advert);
 
             // On la persiste
             $manager->persist($advert);
