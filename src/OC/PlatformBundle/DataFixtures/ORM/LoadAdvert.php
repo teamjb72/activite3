@@ -25,7 +25,8 @@ class LoadAdvert implements FixtureInterface
             if (($i % 2) == 0)
             { $advert->setUpdatedAt($date);}
 
-
+            date_modify($date, '-200 day');
+            $advert->setDate($date);
 
             $advert->setTitle('le titre de l\'annonce'.$i);
 
