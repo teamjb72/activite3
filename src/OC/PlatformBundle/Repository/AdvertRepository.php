@@ -35,21 +35,12 @@ class AdvertRepository extends EntityRepository
   public function getOldAdverts($date)
   {
 
-   /* return $this->createQueryBuilder('a')
-      ->where('a.updatedAt >= :date')                      // Date de modification antérieure à :date
-      ->orWhere('a.updatedAt IS NULL AND a.date >= :date') // Si la date de modification est vide, on vérifie la date de création
-      ->andWhere('a.applications IS EMPTY')                // On vérifie que l'annonce ne contient aucune candidature
-      ->setParameter('date', $date)
-      ->getQuery()
-      ->getResult()
-      ;
-*/
      return $this->createQueryBuilder('a')
          ->where('a.updatedAt >= :date')
+         ->andWhere('a.applications IS EMPTY')
          ->setParameter('date', $date)
          ->getQuery()
          ->getResult()
-
       ;
 
   }
