@@ -43,10 +43,7 @@ class AdvertRepository extends EntityRepository
       ;
       echo $query->getSQL();
 
-      foreach ($query as $advert) {
-          // $advert est une instance d'Advert dans notre exemple
-   var_dump($advert->getContent());
-      }
+      var_dump ($query);
 
       return $query;
 
