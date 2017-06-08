@@ -44,7 +44,7 @@ class AdvertRepository extends EntityRepository
       ->getResult()
       ;*/
 
-     return $$this->createQueryBuilder('a')
+     return $this->createQueryBuilder('a')
          ->where('a.updatedAt >= :date')
          ->setParameter('date', $date)
          ->getQuery()
