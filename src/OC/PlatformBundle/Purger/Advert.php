@@ -32,18 +32,23 @@ class Advert
         $advertRepository      = $this->em->getRepository('OCPlatformBundle:Advert');
         $advertSkillRepository = $this->em->getRepository('OCPlatformBundle:AdvertSkill');
 
+        // Récupère la liste d'annonces ayant plus de x jours et moins d'une candidature affectée
         $listAdverts = $advertRepository->getOldAdverts($days);
 
         foreach ($listAdverts as $advert) {
 
+            // Récupère les compétences recquises affectées à l'annonce
+            // le filtre critère du FindBy est l'annonce
             $advertSkills = $advertSkillRepository->findBy(array('advert' => $advert));
 
+            // Suppression de chaque compétence
             foreach ($advertSkills as $advertSkill) {
                 $this->em->remove($advertSkill);
             }
 
+            // Suppression de l'annonce
             $this->em->remove($advert);
-           echo $advert->getTitle()."<br>;";
+          /* echo $advert->getTitle()."<br>;";*/
         }
 
        $this->em->flush();

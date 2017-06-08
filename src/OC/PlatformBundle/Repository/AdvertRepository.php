@@ -36,7 +36,7 @@ class AdvertRepository extends EntityRepository
   {
       $date = (new \DateTime());
       date_modify($date, '-'.$days.' day');
-      echo "date reference pour la suppression : ".$date->format('Y-m-d H:i:s')."<br>";
+      /*echo "date reference pour la suppression : ".$date->format('Y-m-d H:i:s')."<br>";*/
 
      return $this->createQueryBuilder('a')
          ->where('a.updatedAt <= :date')
