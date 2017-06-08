@@ -42,7 +42,7 @@ class AdvertRepository extends EntityRepository
           ->getQuery()
       ;
       echo $query->getSQL();
-      echo $date;
+      echo $date->format('Y-m-d H:i:s');
 
       return $query;
 
