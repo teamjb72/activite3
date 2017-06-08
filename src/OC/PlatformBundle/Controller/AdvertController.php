@@ -153,7 +153,7 @@ class AdvertController extends Controller
     public function purgeAction($days)
     {
         $resultat_purge = $this->container->get('oc_platform.purger.advert');
-
+/*
         foreach ($resultat_purge as $advert) {
             $toto=$advert;
             // Ne déclenche pas de requête : les candidatures sont déjà chargées !
@@ -161,7 +161,7 @@ class AdvertController extends Controller
             //throw new \Exception('recup ça : '.$advert);
         }
 
-
+*/
 
 
        /* if ($resultat_purge->purge($days)) {
