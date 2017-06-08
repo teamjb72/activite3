@@ -53,6 +53,7 @@ class LoadAdvert implements FixtureInterface
             $advertskill = New AdvertSkill();
             $advertskill->setSkill($skill);
             $advertskill->setAdvert($advert);
+            $advertskill->setLevel('facile');
             $manager->persist($skill);
             // On la persiste
             $manager->persist($advert);
