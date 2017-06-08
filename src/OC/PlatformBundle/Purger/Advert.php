@@ -33,7 +33,7 @@ class Advert
         ;
 
         $listAdverts = $repository->getOldAdverts($days);
-
+        var_dump($listAdverts) ;
         return $listAdverts;
 
         /*return strlen($days) < "3";*/
