@@ -40,14 +40,15 @@ class Advert
             // On récupère les AdvertSkill liées à cette annonce
             $advertSkills = $advertSkillRepository->findBy(array('advert' => $advert));
             // Pour les supprimer toutes avant de pouvoir supprimer l'annonce elle-même
-            foreach ($advertSkills as $advertSkill) {
+            /*foreach ($advertSkills as $advertSkill) {
                 $this->em->remove($advertSkill);
-            }
-            // On peut maintenant supprimer l'annonce
-            $this->em->remove($advert);
+            }*/
+           /* // On peut maintenant supprimer l'annonce
+            $this->em->remove($advert);*/
+           echo $advert->getTitle();
         }
         // Et on n'oublie pas de faire un flush !
-        $this->em->flush();
+      /*  $this->em->flush();*/
 
     }
 }
