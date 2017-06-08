@@ -150,25 +150,15 @@ class AdvertController extends Controller
       'listAdverts' => $listAdverts
     ));
   }
-    public function purgeAction($days)
+    public function purgeAction($days, Request $request)
     {
-        $resultat_purge = $this->container->get('oc_platform.purger.advert');
-
-        foreach ($resultat_purge as $advert) {
-            $toto=$advert;
-            // Ne déclenche pas de requête : les candidatures sont déjà chargées !
-            // Vous pourriez faire une boucle dessus pour les afficher toutes
-            //throw new \Exception('recup ça : '.$advert);
-        }
-
-
-
-
-       /* if ($resultat_purge->purge($days)) {
-            throw new \Exception('Le jour passé en paramètre mesure moins de 3 caractères !');
-        }*/
-
-
-        return new Response("tot ; ".$toto);
+        // On récupère notre service
+        $purger = $this->get('oc_platform.purger.advert');
+        // On purge les annonces
+        $purger->purge($days);
+        // On ajoute un message flash arbitraire
+        $request->getSession()->getFlashBag()->add('info', 'Les annonces plus vieilles que '.$days.' jours ont été purgées.');
+        // On redirige vers la page d'accueil
+        return $this->redirectToRoute('oc_platform_home');
     }
 }
