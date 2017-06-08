@@ -34,8 +34,8 @@ class AdvertRepository extends EntityRepository
 
   public function getOldAdverts($days)
   {
-      $date = (new \DateTime())->modify('-'.$days.' day');
-
+     /* $date = (new \DateTime())->modify('-'.$days.' day');*/
+      $date = (new \DateTime());
       $query = $this->createQueryBuilder('a')
         ->where('a.updatedAt < :date')
           ->setParameter('date', $date)
@@ -45,7 +45,7 @@ class AdvertRepository extends EntityRepository
 
       foreach ($query as $advert) {
           // $advert est une instance d'Advert dans notre exemple
-          echo $advert->getContent();
+   var_dump($advert->getContent());
       }
 
       return $query;
