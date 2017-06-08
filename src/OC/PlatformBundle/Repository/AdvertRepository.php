@@ -32,7 +32,7 @@ class AdvertRepository extends EntityRepository
     return new Paginator($query, true);
   }
 
-  public function getAdvertsBefore($days)
+  public function getOldAdverts($days)
   {
 
     return $this->createQueryBuilder('a')
