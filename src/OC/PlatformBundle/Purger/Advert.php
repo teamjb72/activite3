@@ -29,7 +29,7 @@ class Advert
 
         $date = (new \DateTime());
         date_modify($date, '-'.$days.' day');
-        echo "date reference pour la suppression : ".$date->format('Y-m-d H:i:s')."\n";
+        echo "date reference pour la suppression : ".$date->format('Y-m-d H:i:s')."<br>";
 
         $advertRepository      = $this->em->getRepository('OCPlatformBundle:Advert');
         $advertSkillRepository = $this->em->getRepository('OCPlatformBundle:AdvertSkill');
@@ -46,7 +46,7 @@ class Advert
             }*/
            /* // On peut maintenant supprimer l'annonce
             $this->em->remove($advert);*/
-           echo $advert->getTitle()."\n;";
+           echo $advert->getTitle()."<br>;";
         }
         // Et on n'oublie pas de faire un flush !
       /*  $this->em->flush();*/
