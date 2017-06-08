@@ -16,7 +16,7 @@ class AdvertRepository extends EntityRepository
       ->addSelect('i')
       ->leftJoin('a.categories', 'c')
       ->addSelect('c')
-      ->orderBy('a.date', 'DESC')
+      /*->orderBy('a.date', 'DESC')*/
       ->getQuery()
     ;
 
