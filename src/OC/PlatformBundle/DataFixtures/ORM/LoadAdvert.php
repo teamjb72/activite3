@@ -38,6 +38,10 @@ class LoadAdvert implements FixtureInterface
             // On lie l'image à l'annonce
             $advert->setImage($image);
 
+            $category = new Category();
+            $category->setName("Developpement Mars");
+            $advert->addCategory($category);
+
             $advert->setSlug('annonce'.$i);
 
             // On la persiste
