@@ -40,14 +40,8 @@ class AdvertRepository extends EntityRepository
         ->where('a.updatedAt >= :date')
           ->setParameter('date', $date)
           ->getQuery();*/
-      $query = $this->createQueryBuilder('a')
-          ->leftJoin('a.image', 'i')
-          ->addSelect('i')
-          ->leftJoin('a.categories', 'c')
-          ->addSelect('c')
-          /*->orderBy('a.date', 'DESC')*/
-          ->getQuery()
-      ;
+
+      $query = array("foo", "bar", "hello", "world");
       return $query;
 
   }
