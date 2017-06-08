@@ -39,11 +39,7 @@ class AdvertRepository extends EntityRepository
       $query = $this->createQueryBuilder('a')
         ->where('a.updatedAt < :date')
           ->setParameter('date', $date)
-          ->getQuery()
-      ;
-      echo $query->getSQL();
-
-      var_dump ($query);
+          ->getQuery();
 
       return $query;
 
