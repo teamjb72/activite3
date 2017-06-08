@@ -15,10 +15,10 @@ class LoadAdvert implements FixtureInterface
 
 
             $advert = new Advert();
-            $date = (new \DateTime());
+            /*$date = (new \DateTime());
             date_modify($date, '-40 day');
 
-            $advert->setDate($date);
+            $advert->setDate($date);*/
 
             $advert->setTitle('le titre de l\'annonce'.$i);
 
@@ -28,8 +28,14 @@ class LoadAdvert implements FixtureInterface
 
             $advert->setPublished('1');
 
-            $advert->setUpdatedAt($date);
+           /* $advert->setUpdatedAt($date);*/
 
+            $image = new Image();
+            $image->setUrl('http://sdz-upload.s3.amazonaws.com/prod/upload/job-de-reve.jpg');
+            $image->setAlt('Job de rêve');
+
+            // On lie l'image à l'annonce
+            $advert->setImage($image);
 
             $advert->setSlug('annonce'.$i);
 
