@@ -42,7 +42,11 @@ class AdvertRepository extends EntityRepository
           ->getQuery()
       ;
       echo $query->getSQL();
-      echo $date->format('Y-m-d H:i:s');
+
+      foreach ($query as $advert) {
+          // $advert est une instance d'Advert dans notre exemple
+          echo $advert->getContent();
+      }
 
       return $query;
 
