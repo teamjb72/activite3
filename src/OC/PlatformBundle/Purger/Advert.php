@@ -27,9 +27,7 @@ class Advert
     public function purge($days)
     {
 
-        $date = (new \DateTime());
-        date_modify($date, '-'.$days.' day');
-        echo "date reference pour la suppression : ".$date->format('Y-m-d H:i:s')."<br>";
+
 
         $advertRepository      = $this->em->getRepository('OCPlatformBundle:Advert');
         $advertSkillRepository = $this->em->getRepository('OCPlatformBundle:AdvertSkill');
