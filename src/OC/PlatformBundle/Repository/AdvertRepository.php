@@ -48,6 +48,7 @@ class AdvertRepository extends EntityRepository
          ->where('a.updatedAt >= :date')
          ->setParameter('date', $date)
          ->getQuery()
+         ->getResult()
 
       ;
 
