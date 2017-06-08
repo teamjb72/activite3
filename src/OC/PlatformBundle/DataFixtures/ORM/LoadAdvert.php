@@ -15,6 +15,12 @@ class LoadAdvert implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
+        $category = new Category();
+        $category->setName("Developpement Mars");
+
+        $skill = new Skill ();
+        $skill->setName("PhpStorm");
+
         for ($i = 1; $i <= 10; $i++) {
 
 
@@ -45,14 +51,12 @@ class LoadAdvert implements FixtureInterface
             // On lie l'image à l'annonce
             $advert->setImage($image);
 
-            $category = new Category();
-            $category->setName("Developpement Mars");
+
             $advert->addCategory($category);
 
             $advert->setSlug('annonce'.$i);
 
-            $skill = new Skill ();
-            $skill->setName("ruby");
+
 
             $advertskill = New AdvertSkill();
             $advertskill->setSkill($skill);
