@@ -42,6 +42,7 @@ class AdvertRepository extends EntityRepository
           ->getQuery()
       ;
       echo $query->getSQL();
+      echo $date;
 
       return $query;
 
