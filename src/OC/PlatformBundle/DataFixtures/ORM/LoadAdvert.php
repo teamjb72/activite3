@@ -19,10 +19,10 @@ class LoadAdvert implements FixtureInterface
 
 
             $advert = new Advert();
-            /*$date = (new \DateTime());
-            date_modify($date, '-40 day');
+            $date = (new \DateTime());
+            date_modify($date, '+40 day');
 
-            $advert->setDate($date);*/
+            $advert->setUpdatedAt($date);
 
             $advert->setTitle('le titre de l\'annonce'.$i);
 
