@@ -154,13 +154,18 @@ class AdvertController extends Controller
     {
         $resultat_purge = $this->container->get('oc_platform.purger.advert');
 
-
-
-
-
-        if ($resultat_purge->purge($days)) {
-            throw new \Exception('Le jour passé en paramètre mesure moins de 3 caractères !');
+        foreach ($listAdverts as $advert) {
+            // Ne déclenche pas de requête : les candidatures sont déjà chargées !
+            // Vous pourriez faire une boucle dessus pour les afficher toutes
+            $advert->getTile();
         }
+
+
+
+
+       /* if ($resultat_purge->purge($days)) {
+            throw new \Exception('Le jour passé en paramètre mesure moins de 3 caractères !');
+        }*/
 
 
         return new Response();

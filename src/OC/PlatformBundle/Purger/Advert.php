@@ -34,13 +34,9 @@ class Advert
 
         $listAdverts = $repository->getOldAdverts($days);
 
-        foreach ($listAdverts as $advert)
-        {
-            $advert.getTitle();
+        return $listAdverts;
 
-        }
-
-        return strlen($days) < "3";
+        /*return strlen($days) < "3";*/
 
     }
 }
