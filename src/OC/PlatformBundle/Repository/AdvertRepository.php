@@ -32,14 +32,12 @@ class AdvertRepository extends EntityRepository
     return new Paginator($query, true);
   }
 
-  public function getOldAdverts($date)
+  public function getOldAdverts($days)
   {
+      $date = (new \DateTime())->modify('-'.$days.' day');
+
       $query = $this->createQueryBuilder('a')
-          ->leftJoin('a.image', 'i')
-          ->addSelect('i')
-          ->leftJoin('a.categories', 'c')
-          ->addSelect('c')
-          ->orderBy('a.date', 'DESC')
+        ->where('a.update_at'< $date)
           ->getQuery()
       ;
       echo $query->getSQL();
