@@ -37,7 +37,8 @@ class AdvertRepository extends EntityRepository
       $date = (new \DateTime())->modify('-'.$days.' day');
 
       $query = $this->createQueryBuilder('a')
-        ->where('a.update_at'< $date)
+        ->where('a.update_at< :date')
+          ->setParameter('date', $date)
           ->getQuery()
       ;
       echo $query->getSQL();
