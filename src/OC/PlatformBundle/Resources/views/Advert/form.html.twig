@@ -3,9 +3,10 @@
 <h3>Formulaire d'annonce</h3>
 
 <div class="well">
-    {% form_theme form 'bootstrap_3_layout.html.twig' %}
+
 
     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {% form_theme form 'bootstrap_3_layout.html.twig' %}
 
     {# Les erreurs générales du formulaire. #}
     {{ form_errors(form) }}
