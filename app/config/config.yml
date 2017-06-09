@@ -15,8 +15,7 @@ framework:
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
-    form:
-             - 'foundation_5_layout.html.twig'
+    form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
     #serializer:      { enable_annotations: true }
@@ -39,7 +38,7 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     form_themes:
-        - 'foundation_5_layout.html.twig'
+        - 'bootstrap_3_horizontal_layout.html.twig'
 
 
 # Doctrine Configuration
