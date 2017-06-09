@@ -1,0 +1,9 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	email = bobet.julien@gmail.com
+	name = teamjb
+[push]
+	default = simple
