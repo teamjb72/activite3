@@ -44,6 +44,14 @@ class User implements BaseUser
 
     // Les getters et setters
 
+
+  //  protected $id;
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
     public function eraseCredentials()
     {
     }
