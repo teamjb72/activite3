@@ -24,7 +24,7 @@ security:
         path:       logout
         target:     login
         remember_me:
-        secret:     %secret% # %secret% est un paramètre de parameter
+          secret:     %secret% # %secret% est un paramètre de parameter
 
   encoders:
    #Symfony\Component\Security\Core\User\User: plaintext
