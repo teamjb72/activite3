@@ -9,9 +9,6 @@ OC\UserBundle\Entity\User:
             generator:
                 strategy: AUTO
     fields:
-        password:
-            type: string
-            length: 255
         salt:
             type: array
         roles:
