@@ -21,6 +21,7 @@ class LoadUser implements FixtureInterface
             // Le nom d'utilisateur et le mot de passe sont identiques pour l'instant
             $user->setUsername($name);
             $user->setPassword($name);
+            $user->setEmail($name."@rrr.com");
 
             // On ne se sert pas du sel pour l'instant
             $user->setSalt('');
