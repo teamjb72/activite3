@@ -3,23 +3,21 @@
 namespace OC\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-//use Symfony\Component\Security\Core\User\UserInterface;
 use FOS\UserBundle\Model\User as BaseUser;
 
-
-
 /**
- * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Table(name="oc_user")
+ * @ORM\Entity(repositoryClass="OC\UserBundle\Repository\UserRepository")
  */
-class User implements BaseUser
+class User extends BaseUser
 {
     /**
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
+
 
     /**
      * @ORM\Column(name="username", type="string", length=255, unique=true)
@@ -44,13 +42,7 @@ class User implements BaseUser
     // Les getters et setters
 
 
-  //  protected $id;
 
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
     public function eraseCredentials()
     {
     }
