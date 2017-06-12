@@ -15,12 +15,25 @@ class AdvertType extends AbstractType
     {
 
         $builder
-            ->add('categories', EntityType::class, array(
-                'class'        => 'OCPlatformBundle:Category',
-                'choice_label' => 'name',
-                'multiple'     => true,
+            ->add('date',      DateTimeType::class)
+            ->add('title',     TextType::class)
+            ->add('author',    TextType::class)
+            ->add('content',   TextareaType::class)
+            ->add('published', CheckboxType::class, array('required' => false))
+            ->add('image',     ImageType::class)
+            /*
+             * Rappel :
+             ** - 1er argument : nom du champ, ici « categories », car c'est le nom de l'attribut
+             ** - 2e argument : type du champ, ici « CollectionType » qui est une liste de quelque chose
+             ** - 3e argument : tableau d'options du champ
+             */
+            ->add('categories', CollectionType::class, array(
+                'entry_type'   => CategoryType::class,
+                'allow_add'    => true,
+                'allow_delete' => true
             ))
-        ;
+            ->add('save',      SubmitType::class);
+
     }
     
     /**
