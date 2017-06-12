@@ -9,10 +9,9 @@ use FOS\UserBundle\Model\User as BaseUser;
 
 
 /**
+ * @ORM\Entity
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="OC\UserBundle\Entity\UserRepository")
  */
-
 class User implements BaseUser
 {
     /**
