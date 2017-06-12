@@ -4,6 +4,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 // N'oubliez pas ce use :
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Table(name="oc_advert")
  * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\AdvertRepository")
@@ -23,12 +25,14 @@ class Advert
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Assert\DateTime()
      */
     private $date;
     /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\Length(min=10)
      */
     private $title;
     /**
@@ -41,10 +45,12 @@ class Advert
      * @var string
      *
      * @ORM\Column(name="content", type="string", length=255)
+     * @Assert\Length(min=2)
      */
     private $content;
     /**
      * @ORM\Column(name="published", type="boolean")
+     * @Assert\NotBlank()
      */
     private $published = true;
     /**
@@ -54,6 +60,8 @@ class Advert
     /**
      * @ORM\ManyToMany(targetEntity="OC\PlatformBundle\Entity\Category", cascade={"persist"})
      * @ORM\JoinTable(name="oc_advert_category")
+     * @Assert\Valid()
+
      */
     private $categories;
     /**
