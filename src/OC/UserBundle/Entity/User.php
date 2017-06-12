@@ -10,6 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="OC\UserBundle\Entity\UserRepository")
  */
+
 class User implements UserInterface
 {
     /**
