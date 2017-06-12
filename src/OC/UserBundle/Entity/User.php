@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 
 /**
- * @ORM\Table(name="oc_user")
+ * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="OC\UserBundle\Entity\UserRepository")
  */
 class User
