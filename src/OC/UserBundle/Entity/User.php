@@ -2,6 +2,9 @@
 
 namespace OC\UserBundle\Entity;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+
+
 /**
  * User
  */
