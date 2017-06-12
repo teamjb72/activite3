@@ -7,6 +7,10 @@ use OC\PlatformBundle\Form\AdvertType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+
+
+
 class AdvertController extends Controller
 {
     public function indexAction($page)
@@ -64,6 +68,13 @@ class AdvertController extends Controller
     }
     public function addAction(Request $request)
     {
+
+        // On vérifie que l'utilisateur dispose bien du rôle ROLE_AUTEUR
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_AUTEUR')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux auteurs.');
+        }
+
         $advert = new Advert();
         $form   = $this->get('form.factory')->create(AdvertType::class, $advert);
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
