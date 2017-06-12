@@ -9,6 +9,4 @@ OC\UserBundle\Entity\User:
             generator:
                 strategy: AUTO
     fields:
-        roles:
-            type: array
     lifecycleCallbacks: {  }
