@@ -15,7 +15,7 @@ class AdvertType extends AbstractType
     {
       //  $builder->add('date')->add('title')->add('author')->add('content')->add('published')->add('updatedAt')->add('nbApplications')->add('slug')->add('image')->add('categories');
         // Arbitrairement, on récupère toutes les catégories qui commencent par "D"
-        $pattern = 'D%';
+       /*$pattern = 'D%';
 
         $builder
             // ...
@@ -26,6 +26,13 @@ class AdvertType extends AbstractType
                 'query_builder' => function(CategoryRepository $repository) use($pattern) {
                     return $repository->getLikeQueryBuilder($pattern);
                 }
+            ))
+        ;*/
+        $builder
+            ->add('categories', EntityType::class, array(
+                'class'        => 'OCPlatformBundle:Category',
+                'choice_label' => 'name',
+                'multiple'     => true,
             ))
         ;
     }
