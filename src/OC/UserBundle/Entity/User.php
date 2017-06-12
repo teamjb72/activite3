@@ -3,7 +3,9 @@
 namespace OC\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+//use Symfony\Component\Security\Core\User\UserInterface;
+use FOS\UserBundle\Model\User as BaseUser;
+
 
 
 /**
@@ -11,7 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Entity(repositoryClass="OC\UserBundle\Entity\UserRepository")
  */
 
-class User implements UserInterface
+class User implements BaseUser
 {
     /**
      * @ORM\Column(name="id", type="integer")
