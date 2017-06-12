@@ -10,9 +10,7 @@ security:
 
   providers:
     main:
-         entity:
-           class:    OC\UserBundle\Entity\User
-           property: username
+          id: fos_user.user_provider.username
 
   firewalls:
     main:
@@ -27,5 +25,5 @@ security:
         target:     login
 
   encoders:
-    Symfony\Component\Security\Core\User\User: plaintext
-    OC\UserBundle\Entity\User: plaintext
+   #Symfony\Component\Security\Core\User\User: plaintext
+    OC\UserBundle\Entity\User: sha512
