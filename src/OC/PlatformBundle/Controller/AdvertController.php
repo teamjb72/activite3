@@ -66,14 +66,15 @@ class AdvertController extends Controller
             'listAdvertSkills' => $listAdvertSkills,
         ));
     }
+
+
+    /**
+     * @Security("has_role('ROLE_AUTEUR')")
+     */
     public function addAction(Request $request)
     {
 
-        // On vérifie que l'utilisateur dispose bien du rôle ROLE_AUTEUR
-        if (!$this->get('security.authorization_checker')->isGranted('ROLE_AUTEUR')) {
-            // Sinon on déclenche une exception « Accès interdit »
-            throw new AccessDeniedException('Accès limité aux auteurs.');
-        }
+
 
         $advert = new Advert();
         $form   = $this->get('form.factory')->create(AdvertType::class, $advert);
