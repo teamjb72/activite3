@@ -7,8 +7,19 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use OC\UserBundle\Entity\User;
 
-class LoadUser implements FixtureInterface
+class LoadUser implements FixtureInterface, ContainerAwareInterface
 {
+
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
+
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
     public function load(ObjectManager $manager)
     {
         // Les noms d'utilisateurs à créer
