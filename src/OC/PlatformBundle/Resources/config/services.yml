@@ -24,3 +24,10 @@ services:
     class: OC\PlatformBundle\Purger\Advert
     arguments:
       - "@doctrine.orm.entity_manager"
+
+  oc_platform.twig.antispam_extension:
+    class: OC\PlatformBundle\Twig\AntispamExtension
+    arguments:
+      - "@oc_platform.antispam"
+    tags:
+      -  { name: twig.extension }
