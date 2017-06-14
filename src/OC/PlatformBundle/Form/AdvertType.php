@@ -20,6 +20,7 @@ class AdvertType extends AbstractType
         // Arbitrairement, on récupère toutes les catégories qui commencent par "D"
         $pattern = 'D%';
         $builder
+            ->add('content', CkeditorType::class)
             ->add('date',      DateTimeType::class)
             ->add('title',     TextType::class)
             ->add('author',    TextType::class)
@@ -32,6 +33,8 @@ class AdvertType extends AbstractType
                 'query_builder' => function(CategoryRepository $repository) use($pattern) {
                     return $repository->getLikeQueryBuilder($pattern);
                 }
+
+
             ))
             ->add('save',      SubmitType::class)
         ;
