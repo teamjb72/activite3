@@ -6,22 +6,13 @@ namespace OC\UserBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use OC\UserBundle\Entity\User;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
 
 class LoadUser implements FixtureInterface, ContainerAwareInterface
 {
-
-    /**
-     * @var ContainerInterface
-     */
+    /** @var ContainerInterface */
     private $container;
 
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
 
     public function load(ObjectManager $manager)
     {
@@ -36,7 +27,7 @@ class LoadUser implements FixtureInterface, ContainerAwareInterface
             $user->setUsername($name);
             $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
             $user->setPassword($encoder->encodePassword($name, $user->getSalt()));
-            $user->setEmail($name."@rrr.com");
+            $user->setEmail($name . "@rrr.com");
 
             // On ne se sert pas du sel pour l'instant
             $user->setSalt('');
@@ -46,9 +37,17 @@ class LoadUser implements FixtureInterface, ContainerAwareInterface
             $user->setEnabled(true);
             // On le persiste
             $manager->persist($user);
+
+            // On déclenche l'enregistrement
+            $manager->flush();
         }
 
-        // On déclenche l'enregistrement
-        $manager->flush();
     }
+
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
 }
+
