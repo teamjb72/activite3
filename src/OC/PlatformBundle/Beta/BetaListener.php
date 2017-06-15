@@ -3,6 +3,7 @@
 
 namespace OC\PlatformBundle\Beta;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
 class BetaListener
